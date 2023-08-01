@@ -43,6 +43,17 @@ export const init = async () => {
     });
     modal.show();
 
+    // The code above didnt work for me, i get "Uncaught TypeError: _modal_factory.default.create(...).show is not a function" on ff.
+    // The code below does work, maybe because i use it inside a function?
+    ModalFactory.create({
+        type: ModalFactory.types.SAVE_CANCEL,
+        title: 'Delete item',
+        body: 'Do you really want to delete?',
+    }).then(function(modal) {
+        modal.show();
+    });
+    // It got a bit confusing, maybe you can clarify this issue?
+
     // ...
 };
 ```
